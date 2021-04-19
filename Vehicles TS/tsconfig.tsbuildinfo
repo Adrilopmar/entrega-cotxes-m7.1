@@ -1,0 +1,82 @@
+{
+  "program": {
+    "fileInfos": {
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.d.ts": {
+        "version": "2dc8c927c9c162a773c6bb3cdc4f3286c23f10eedc67414028f9cb5951610f60",
+        "signature": "2dc8c927c9c162a773c6bb3cdc4f3286c23f10eedc67414028f9cb5951610f60",
+        "affectsGlobalScope": false
+      },
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "b3584bc5798ed422ce2516df360ffa9cf2d80b5eae852867db9ba3743145f895",
+        "signature": "b3584bc5798ed422ce2516df360ffa9cf2d80b5eae852867db9ba3743145f895",
+        "affectsGlobalScope": true
+      },
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "feeeb1dd8a80fb76be42b0426e8f3ffa9bdef3c2f3c12c147e7660b1c5ba8b3b",
+        "signature": "feeeb1dd8a80fb76be42b0426e8f3ffa9bdef3c2f3c12c147e7660b1c5ba8b3b",
+        "affectsGlobalScope": true
+      },
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+        "version": "7fac8cb5fc820bc2a59ae11ef1c5b38d3832c6d0dfaec5acdb5569137d09a481",
+        "signature": "7fac8cb5fc820bc2a59ae11ef1c5b38d3832c6d0dfaec5acdb5569137d09a481",
+        "affectsGlobalScope": true
+      },
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.scripthost.d.ts": {
+        "version": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd",
+        "signature": "097a57355ded99c68e6df1b738990448e0bf170e606707df5a7c0481ff2427cd",
+        "affectsGlobalScope": true
+      },
+      "./controllers/controller.ts": {
+        "version": "bb57f791ea7f638fd40c455b47eb998571e8929387e4b58e8f975cc22315aacf",
+        "signature": "9d0c4e06c8c1ccac7407bf9186604c8cfd9457c39a4ae5de93a6f11cdb89ba43",
+        "affectsGlobalScope": true
+      },
+      "./models/car.ts": {
+        "version": "d789a570d0cbdbeacdc510947ae98ea6459fb5488b762a391567df57cd3f99b3",
+        "signature": "864c663246facdefeb7f000d6489b07e1f6fc2cac8df84768aae383cd8e757e3",
+        "affectsGlobalScope": true
+      },
+      "./models/wheel.ts": {
+        "version": "df5276a84c671dc18868137b130b553dd4545bdc91811f0894eacc62c1fdf201",
+        "signature": "90628a66d1fe72ad634b83e78c66454784d15b3ab58e47645189fe9b448d1f19",
+        "affectsGlobalScope": true
+      }
+    },
+    "options": {
+      "target": 1,
+      "module": 1,
+      "rootDir": "./",
+      "composite": true,
+      "strict": true,
+      "strictNullChecks": false,
+      "esModuleInterop": true,
+      "watch": true,
+      "configFilePath": "./tsconfig.json"
+    },
+    "referencedMap": {},
+    "exportedModulesMap": {},
+    "semanticDiagnosticsPerFile": [
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.d.ts",
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts",
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts",
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.scripthost.d.ts",
+      "../../../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      [
+        "./controllers/controller.ts",
+        [
+          {
+            "file": "./controllers/controller.ts",
+            "start": 7611,
+            "length": 6,
+            "messageText": "Overload signatures must all be ambient or non-ambient.",
+            "category": 1,
+            "code": 2384
+          }
+        ]
+      ],
+      "./models/car.ts",
+      "./models/wheel.ts"
+    ]
+  },
+  "version": "4.2.3"
+}

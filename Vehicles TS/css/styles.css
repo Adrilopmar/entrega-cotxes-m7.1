@@ -1,0 +1,85 @@
+body {
+  padding-top: 5vw; }
+
+.register {
+  border: 2px solid #f1f1f1;
+  border-radius: 7px;
+  width: 30%;
+  padding: 3vw; }
+  .register .new {
+    flex-direction: column;
+    margin: 0;
+    padding: 0; }
+    .register .new h5 {
+      color: #f1f1f1; }
+    .register .new input {
+      margin: 5px 0; }
+  .register button {
+    margin-left: auto;
+    margin-top: 7px; }
+
+.scroll {
+  max-height: 485px;
+  overflow: scroll;
+  overflow-x: hidden;
+  margin-bottom: 1vw; }
+
+.wheels,
+.titol-car,
+.garage {
+  display: none; }
+
+#edit-button,
+#save-car-button {
+  display: none; }
+
+.bord {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0; }
+
+.boto {
+  height: 5vw; }
+
+.car-info, .garage {
+  color: #f1f1f1;
+  border: 2px solid #f1f1f1;
+  border-radius: 7px;
+  padding: 1vw; }
+  .car-info .car-components, .garage .car-components {
+    margin: auto; }
+
+.parking {
+  border: 1px solid #f1f1f1;
+  padding: 5px;
+  border-radius: 7px; }
+  .parking h6 {
+    font-size: 18px; }
+  .parking p {
+    padding: 0; }
+  .parking .parkingInfo {
+    margin-top: 5px; }
+
+.garageInfo {
+  margin: 1.5vw; }
+  .garageInfo p {
+    margin: 0; }
+
+.new-card {
+  background-color: #3f3f3f;
+  margin-top: 1.5vw; }
+
+#wheel-diameter-1,
+#wheel-diameter-2,
+#wheel-diameter-3,
+#wheel-diameter-4,
+#wheel-brand-1,
+#wheel-brand-2,
+#wheel-brand-3,
+#wheel-brand-4 {
+  width: 45%; }
+
+.eliminar:hover {
+  cursor: pointer;
+  color: red; }
+
+/*# sourceMappingURL=styles.css.map */
