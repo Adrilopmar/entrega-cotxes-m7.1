@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var car, RegExPlate = /([0-9]{4})([a-z]{3})/i, Mistakes = 0, c = 0, carArray = [];
-var plateCar = document.getElementById('plate'), colorCar = document.getElementById('color'), brandCar = document.getElementById('brand'), componentsCar = document.getElementById('components'), wheelBrand1 = document.getElementById('wheel-brand-1'), diameterWheel1 = document.getElementById('wheel-diameter-1'), wheelBrand2 = document.getElementById('wheel-brand-2'), diameterWheel2 = document.getElementById('wheel-diameter-2'), wheelBrand3 = document.getElementById('wheel-brand-3'), diameterWheel3 = document.getElementById('wheel-diameter-3'), wheelBrand4 = document.getElementById('wheel-brand-4'), diameterWheel4 = document.getElementById('wheel-diameter-4'), carDetails = document.getElementById("car-details"), carTitle = document.getElementById("titolCar"), registerCar = document.getElementById('registerCar'), wheelTitle = document.getElementById("titolWheel"), registerWheels = document.getElementById('registerWheels'), wheelsCar = document.getElementById('wheelsCar'), editButton = document.getElementById("edit-button"), addWheelButton = document.getElementById("add-wheels-button"), saveCarButton = document.getElementById("save-car-button"), carGarage = document.getElementById('carGarage');
+var plateCar = document.getElementById('plate'), colorCar = document.getElementById('color'), brandCar = document.getElementById('brand'), componentsCar = document.getElementById('components'), carDetails = document.getElementById("car-details"), carTitle = document.getElementById("titolCar"), registerCar = document.getElementById('registerCar'), wheelTitle = document.getElementById("titolWheel"), registerWheels = document.getElementById('registerWheels'), wheelsCar = document.getElementById('wheelsCar'), editButton = document.getElementById("edit-button"), addWheelButton = document.getElementById("add-wheels-button"), saveCarButton = document.getElementById("save-car-button"), carGarage = document.getElementById('carGarage');
 var CarSerial = /** @class */ (function (_super) {
     __extends(CarSerial, _super);
     function CarSerial(id, plate, brand, color) {
@@ -98,25 +98,22 @@ function createCar(id, plate, brand, color) {
     }
 }
 function wheels() {
-    var WheelsBrands = [wheelBrand1.value, wheelBrand2.value, wheelBrand3.value, wheelBrand4.value,], WheelsDiameters = [parseFloat(diameterWheel1.value), parseFloat(diameterWheel2.value), parseFloat(diameterWheel3.value), parseFloat(diameterWheel4.value),];
     Mistakes = 0;
-    checkDiameter(diameterWheel1);
-    checkDiameter(diameterWheel2);
-    checkDiameter(diameterWheel3);
-    checkDiameter(diameterWheel4);
-    checkWheelBrand(wheelBrand1);
-    checkWheelBrand(wheelBrand2);
-    checkWheelBrand(wheelBrand3);
-    checkWheelBrand(wheelBrand4);
+    for (var i = 1; i < 4; i++) {
+        var wheelBrand = document.getElementById('wheel-brand-' + i);
+        var diameterWheel = document.getElementById('wheel-diameter-' + i);
+        checkDiameter(diameterWheel);
+        checkWheelBrand(wheelBrand);
+    }
     if (Mistakes == 0) {
         wheelTitle.style.display = "block";
-        for (var j = 0; j < 4; j++) {
-            var brandNewWheel = (document.createElement('div'));
+        for (var j = 1; j < 5; j++) {
+            var wheelBrand = document.getElementById('wheel-brand-' + j), diameterWheel = document.getElementById('wheel-diameter-' + j), brandNewWheel = (document.createElement('div'));
             brandNewWheel.classList.add('row', 'justify-content-around');
             brandNewWheel.id = 'brandNewWheel' + [j];
             wheelsCar.appendChild(brandNewWheel);
-            brandNewWheel.innerHTML = "<p class='col-3'> <strong>Wheel " + [j + 1] + ":</strong> <p class='col-3'> <strong>Brand:</strong> " +
-                WheelsBrands[j] + "</p> <p class='col-3'> <strong> Diameter: </strong>" + WheelsDiameters[j] + "</p> <br>";
+            brandNewWheel.innerHTML = "<p class='col-3'> <strong>Wheel " + [j] + ":</strong> <p class='col-3'> <strong>Brand:</strong> " +
+                wheelBrand.value + "</p> <p class='col-3'> <strong> Diameter: </strong>" + diameterWheel.value + "</p> <br>";
         }
         editButton.style.display = "block";
         addWheelButton.style.display = "none";
@@ -130,10 +127,11 @@ function edit() {
     wheels();
 }
 function saveCar() {
-    car.addWheel(new Wheel(parseFloat(diameterWheel1.value), wheelBrand1.value));
-    car.addWheel(new Wheel(parseFloat(diameterWheel2.value), wheelBrand2.value));
-    car.addWheel(new Wheel(parseFloat(diameterWheel3.value), wheelBrand3.value));
-    car.addWheel(new Wheel(parseFloat(diameterWheel4.value), wheelBrand4.value));
+    for (var i = 1; i < 4; i++) {
+        var wheelBrand = document.getElementById('wheel-brand-' + i);
+        var diameterWheel = document.getElementById('wheel-diameter-' + i);
+        car.addWheel(new Wheel(parseFloat(diameterWheel.value), wheelBrand.value));
+    }
     carTitle.style.display = "none";
     registerCar.style.display = "block";
     registerWheels.style.display = "none";

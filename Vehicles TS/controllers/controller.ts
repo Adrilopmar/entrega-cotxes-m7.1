@@ -7,14 +7,6 @@ const   plateCar= <HTMLInputElement>document.getElementById('plate'),
         colorCar= <HTMLInputElement>document.getElementById('color'),
         brandCar= <HTMLInputElement>document.getElementById('brand'),
         componentsCar = <HTMLElement>document.getElementById('components'),
-        wheelBrand1 = <HTMLInputElement>document.getElementById('wheel-brand-1'),
-        diameterWheel1 = <HTMLInputElement>document.getElementById('wheel-diameter-1'),
-        wheelBrand2 = <HTMLInputElement>document.getElementById('wheel-brand-2'),
-        diameterWheel2 = <HTMLInputElement>document.getElementById('wheel-diameter-2'),
-        wheelBrand3 = <HTMLInputElement>document.getElementById('wheel-brand-3'),
-        diameterWheel3 = <HTMLInputElement>document.getElementById('wheel-diameter-3'),
-        wheelBrand4 = <HTMLInputElement>document.getElementById('wheel-brand-4'),
-        diameterWheel4 = <HTMLInputElement>document.getElementById('wheel-diameter-4'),
         carDetails= <HTMLElement>document.getElementById("car-details"),
         carTitle= <HTMLElement>document.getElementById("titolCar"),
         registerCar=<HTMLElement>document.getElementById('registerCar'),
@@ -24,7 +16,7 @@ const   plateCar= <HTMLInputElement>document.getElementById('plate'),
         editButton=<HTMLElement>document.getElementById("edit-button"),
         addWheelButton=<HTMLElement>document.getElementById("add-wheels-button"),
         saveCarButton=<HTMLElement>document.getElementById("save-car-button"),
-        carGarage=<HTMLElement>document.getElementById('carGarage');   
+        carGarage=<HTMLElement>document.getElementById('carGarage');
 class CarSerial extends Car{ //extenem i li posem una id
     id:number
     constructor(id:number,plate:string,brand:string,color:string){
@@ -105,26 +97,24 @@ function createCar(id:number,plate:string,brand:string,color:string){
     }
 }
 function wheels(){ // totes les rodes són correctes? validem abans de fer push
-    let WheelsBrands=[wheelBrand1.value,wheelBrand2.value,wheelBrand3.value,wheelBrand4.value,],
-        WheelsDiameters =[parseFloat(diameterWheel1.value),parseFloat(diameterWheel2.value),parseFloat(diameterWheel3.value),parseFloat(diameterWheel4.value),]
-Mistakes = 0;
-    checkDiameter(diameterWheel1);
-    checkDiameter(diameterWheel2);
-    checkDiameter(diameterWheel3);
-    checkDiameter(diameterWheel4);
-    checkWheelBrand(wheelBrand1);
-    checkWheelBrand(wheelBrand2);
-    checkWheelBrand(wheelBrand3);
-    checkWheelBrand(wheelBrand4);
+    Mistakes = 0;
+for(let i=1;i<4;i++){
+    let wheelBrand =<HTMLInputElement>document.getElementById('wheel-brand-'+i);
+    let diameterWheel =<HTMLInputElement>document.getElementById('wheel-diameter-'+i);
+    checkDiameter(diameterWheel);
+    checkWheelBrand(wheelBrand);
+}
     if(Mistakes == 0){
         wheelTitle.style.display="block"
-        for(let j=0;j<4;j++){
-            let brandNewWheel= (document.createElement('div'));
+        for(let j=1;j<5;j++){
+            let wheelBrand =<HTMLInputElement>document.getElementById('wheel-brand-'+j),
+                diameterWheel =<HTMLInputElement>document.getElementById('wheel-diameter-'+j),
+                brandNewWheel= (document.createElement('div'));
             brandNewWheel.classList.add('row','justify-content-around');
             brandNewWheel.id='brandNewWheel'+[j];
             wheelsCar.appendChild(brandNewWheel);
-            brandNewWheel.innerHTML="<p class='col-3'> <strong>Wheel "+ [j+1] +":</strong> <p class='col-3'> <strong>Brand:</strong> " + 
-            WheelsBrands[j] + "</p> <p class='col-3'> <strong> Diameter: </strong>"  + WheelsDiameters[j] + "</p> <br>"
+            brandNewWheel.innerHTML="<p class='col-3'> <strong>Wheel "+ [j] +":</strong> <p class='col-3'> <strong>Brand:</strong> " + 
+            wheelBrand.value + "</p> <p class='col-3'> <strong> Diameter: </strong>"  + diameterWheel.value + "</p> <br>"
         }
         editButton.style.display="block"
         addWheelButton.style.display="none"
@@ -136,10 +126,12 @@ function edit(){ //editem les rodes abans de fer push
     wheels()
 }
 function saveCar(){ // push a les rodes i el guardem
-    car.addWheel(new Wheel(parseFloat(diameterWheel1.value),wheelBrand1.value));
-    car.addWheel(new Wheel(parseFloat(diameterWheel2.value),wheelBrand2.value));
-    car.addWheel(new Wheel(parseFloat(diameterWheel3.value),wheelBrand3.value));
-    car.addWheel(new Wheel(parseFloat(diameterWheel4.value),wheelBrand4.value));
+    for(let i=1;i<4;i++){
+        let wheelBrand =<HTMLInputElement>document.getElementById('wheel-brand-'+i);
+        let diameterWheel =<HTMLInputElement>document.getElementById('wheel-diameter-'+i);
+    car.addWheel(new Wheel(parseFloat(diameterWheel.value),wheelBrand.value));
+    } 
+    
     carTitle.style.display="none"
     registerCar.style.display="block"
     registerWheels.style.display="none"
